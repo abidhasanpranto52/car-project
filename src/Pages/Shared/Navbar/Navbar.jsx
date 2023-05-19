@@ -46,7 +46,7 @@ const Navbar = () => {
             <Link to={"/mytoys"}>My Toys</Link>
           </li>
           <li>
-            <Link to={"/add a toy"}>Add A toy</Link>
+            <Link to={"/add a toy"}>Add A Toy</Link>
           </li>
             <li>
               <Link to={"/blog"}>Blog</Link>
@@ -72,7 +72,7 @@ const Navbar = () => {
             <Link to={"/mytoys"}>My Toys</Link>
           </li>
           <li>
-            <Link to={"/add a toy"}>Add A toy</Link>
+            <Link to={"/add a toy"}>Add A Toy</Link>
           </li>
           <li>
             <Link to={"/blog"}>Blog</Link>
@@ -87,7 +87,7 @@ const Navbar = () => {
           <AiOutlineSearch className="lg:text-2xl" />
         </Link>
         
-        <Link to={""} className="btn btn-outline btn-warning btn-xs lg:btn-md">
+        <Link to={"/login"} className="btn btn-outline btn-warning btn-xs lg:btn-md">
           Profile
         </Link>
       </div>

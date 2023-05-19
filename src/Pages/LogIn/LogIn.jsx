@@ -1,14 +1,28 @@
-import React from 'react';
-import login from '../../assets/logo/login.png'
-import { Link } from 'react-router-dom';
-import GoogleSignIn from '../Shared/GoogleSignIn/GoogleSignIn';
+import { useContext } from "react";
+import login from "../../assets/logo/login.png";
+import { Link } from "react-router-dom";
+import GoogleSignIn from "../Shared/GoogleSignIn/GoogleSignIn";
+import { AuthContext } from "../Provider/AuthProvider";
 
 const LogIn = () => {
-    const handleLogin = {
+  const { signIn } = useContext(AuthContext);
 
-    }
-    return (
-        <div className="hero animate__animated animate__zoomIn min-h-screen bg-base-200">
+  const handleLogin = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const email = form.email.value;
+    const password = form.password.value;
+
+    // console.log(email, password);
+    signIn(email, password)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((error) => console.log(error));
+  };
+  return (
+    <div className="hero animate__animated animate__zoomIn min-h-screen bg-base-200">
       <div className="hero-content flex-col lg:flex-row">
         <div className="text-center w-1/2 lg:text-left">
           <img src={login} alt="" />
@@ -70,7 +84,7 @@ const LogIn = () => {
         </div>
       </div>
     </div>
-    );
+  );
 };
 
 export default LogIn;
