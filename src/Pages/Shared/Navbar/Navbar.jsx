@@ -4,32 +4,6 @@ import { AiOutlineSearch } from "react-icons/ai";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
-  const [loggedIn, setLoggedIn] = useState(false);
-  const [username, setUsername] = useState("");
-  const [profilePicture, setProfilePicture] = useState("");
-
-  const handleLogin = () => {
-    // Perform login logic
-    setLoggedIn(true);
-    setUsername("John Doe"); // Set the logged-in user's name here
-  };
-
-  const handleSignup = (event) => {
-    event.preventDefault();
-
-    // Perform signup logic and capture user information
-    const { username, profilePicture } = event.target.elements;
-
-    setUsername(username.value);
-    setProfilePicture(profilePicture.value);
-    setLoggedIn(true);
-  };
-
-  const handleLogout = () => {
-    // Perform logout logic
-    setLoggedIn(false);
-    setUsername("");
-  };
   return (
     <div
       style={{ "font-family": "'Rancho', cursive" }}
@@ -67,7 +41,7 @@ const Navbar = () => {
               <Link to={"/mytoys"}>My Toys</Link>
             </li>
             <li>
-              <Link to={"/add a toy"}>Add A Toy</Link>
+              <Link to={"/addtoy"}>Add A Toy</Link>
             </li>
             <li>
               <Link to={"/blog"}>Blog</Link>
@@ -94,7 +68,7 @@ const Navbar = () => {
             <Link to={"/mytoys"}>My Toys</Link>
           </li>
           <li>
-            <Link to={"/add a toy"}>Add A Toy</Link>
+            <Link to={"/addtoy"}>Add A Toy</Link>
           </li>
           <li>
             <Link to={"/blog"}>Blog</Link>
@@ -109,11 +83,33 @@ const Navbar = () => {
           <AiOutlineSearch className="lg:text-2xl" />
         </Link>
 
-        <Link
-          to={"/login"}
-          className="btn btn-outline btn-warning btn-xs lg:btn-md"
-        >
-          Profile
+        {user?.email ? (
+          <>
+            <Link
+              to={"/bookings"}
+              className="btn flex items-center btn-outline tooltip tooltip-bottom border-none btn-warning"
+              data-tip="shop"
+            >
+              <AiOutlineShopping className="lg:text-2xl " />
+            </Link>
+            <Link
+              onClick={handleLogOut}
+              to={""}
+              className="btn btn-outline border-none btn-warning"
+            >
+              <AiOutlineLogout className="lg:text-2xl" />
+            </Link>
+          </>
+        ) : (
+          <Link
+            to={"/login"}
+            className="btn btn-outline border-none btn-warning"
+          >
+            <AiOutlineLogin className="lg:text-2xl" />
+          </Link>
+        )}
+        <Link to={""} className="btn btn-outline btn-warning btn-xs lg:btn-md">
+          Appoinment
         </Link>
       </div>
     </div>

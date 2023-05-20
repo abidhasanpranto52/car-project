@@ -1,11 +1,15 @@
 import { useContext } from "react";
 import login from "../../assets/logo/login.png";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import GoogleSignIn from "../Shared/GoogleSignIn/GoogleSignIn";
 import { AuthContext } from "../Provider/AuthProvider";
 
 const LogIn = () => {
   const { signIn } = useContext(AuthContext);
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const from = location.state?.from?.pathname || "/";
 
   const handleLogin = (event) => {
     event.preventDefault();

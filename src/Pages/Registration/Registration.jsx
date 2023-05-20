@@ -3,6 +3,7 @@ import img1 from "../../assets/logo/registration.png";
 import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
+import { updateProfile } from "firebase/auth";
 
 const Registration = () => {
   const { createUser } = useContext(AuthContext);
@@ -21,6 +22,17 @@ const Registration = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
+        updateProfile(auth.currentUser, {
+          displayName: name,
+          photoURL: img,
+        })
+          .then(() => {
+            console.log("user updated");
+          })
+          .catch((error) => {
+            // An error occurred
+            // ...
+          });
       })
       .catch((error) => console.log(error));
   };
