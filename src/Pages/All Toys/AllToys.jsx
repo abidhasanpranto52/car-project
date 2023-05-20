@@ -49,7 +49,7 @@ const AllToys = () => {
                   <th>Toy Name</th>
                   <th>Sub-category</th>
                   <th>Price</th>
-                  <th>Available Quantity</th>
+                  <th className="text-center">Available Quantity</th>
                   <th></th>
                 </tr>
               </thead>

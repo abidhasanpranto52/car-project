@@ -48,7 +48,7 @@ const AddToy = () => {
             <input
               className="text-input p-3 border-2 rounded border-indigo-600"
               {...register("name", { required: true })}
-              placeholder="Name"
+              placeholder="Toy Name"
               defaultValue=""
             />
             <input
