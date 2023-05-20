@@ -1,6 +1,6 @@
-import React, { } from "react";
+import React from "react";
 
-const AllTouysInfo = ({ toy }) => {
+const MyToysInfo = ({ toy }) => {
   const {
     _id,
     seller,
@@ -42,4 +42,4 @@ const AllTouysInfo = ({ toy }) => {
   );
 };
 
-export default AllTouysInfo;
+export default MyToysInfo;

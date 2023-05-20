@@ -32,7 +32,7 @@ const AllToys = () => {
   return (
     <div>
       <div>
-        <h1 className="text-center text-2xl">My toys : {toys.length}</h1>
+        <h1 className="text-center font-bold text-2xl">All toys</h1>
         <input
           type="text"
           placeholder="Search by toy name..."
@@ -46,11 +46,11 @@ const AllToys = () => {
               {/* head */}
               <thead>
                 <tr>
-                  <th>Seller</th>
-                  <th>Image</th>
-                  <th>Toy Name</th>
-                  <th>Sub-category</th>
-                  <th>Price</th>
+                  <th className="text-center">Image</th>
+                  <th className="text-center">Seller</th>
+                  <th className="text-center">Toy Name</th>
+                  <th className="text-center">Sub-category</th>
+                  <th className="text-center">Price</th>
                   <th className="text-center">Available Quantity</th>
                   <th></th>
                 </tr>
@@ -60,8 +60,6 @@ const AllToys = () => {
                   <AllTouysInfo
                     key={toy._id}
                     toy={toy}
-                    // handleDelete={handleDelete}
-                    // handleBookingConfirm={handleBookingConfirm}
                   ></AllTouysInfo>
                 ))}
               </tbody>
