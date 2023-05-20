@@ -1,14 +1,35 @@
-import React from "react";
+import React, { useState } from "react";
 import logo from "../../../assets/logo/logo.png";
-import {
-  AiOutlineLogin,
-  AiOutlineLogout,
-  AiOutlineSearch,
-  AiOutlineShopping,
-} from "react-icons/ai";
+import { AiOutlineSearch } from "react-icons/ai";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
+  const [loggedIn, setLoggedIn] = useState(false);
+  const [username, setUsername] = useState("");
+  const [profilePicture, setProfilePicture] = useState("");
+
+  const handleLogin = () => {
+    // Perform login logic
+    setLoggedIn(true);
+    setUsername("John Doe"); // Set the logged-in user's name here
+  };
+
+  const handleSignup = (event) => {
+    event.preventDefault();
+
+    // Perform signup logic and capture user information
+    const { username, profilePicture } = event.target.elements;
+
+    setUsername(username.value);
+    setProfilePicture(profilePicture.value);
+    setLoggedIn(true);
+  };
+
+  const handleLogout = () => {
+    // Perform logout logic
+    setLoggedIn(false);
+    setUsername("");
+  };
   return (
     <div
       style={{ "font-family": "'Rancho', cursive" }}
@@ -40,14 +61,14 @@ const Navbar = () => {
               <Link to={"/"}>Home</Link>
             </li>
             <li>
-            <Link to={"/alltoys"}>All Toys</Link>
-          </li>
-          <li>
-            <Link to={"/mytoys"}>My Toys</Link>
-          </li>
-          <li>
-            <Link to={"/add a toy"}>Add A Toy</Link>
-          </li>
+              <Link to={"/alltoys"}>All Toys</Link>
+            </li>
+            <li>
+              <Link to={"/mytoys"}>My Toys</Link>
+            </li>
+            <li>
+              <Link to={"/add a toy"}>Add A Toy</Link>
+            </li>
             <li>
               <Link to={"/blog"}>Blog</Link>
             </li>
@@ -56,8 +77,9 @@ const Navbar = () => {
             </li>
           </ul>
         </div>
-        <Link to={"/"}>
+        <Link to={"/"} className="flex">
           <img style={{ height: 60 }} src={logo} alt="" />
+          <span className="lg:leading-10">ToMmY Toys</span>
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
@@ -86,8 +108,11 @@ const Navbar = () => {
         <Link to={""} className="btn btn-outline border-none btn-warning">
           <AiOutlineSearch className="lg:text-2xl" />
         </Link>
-        
-        <Link to={"/login"} className="btn btn-outline btn-warning btn-xs lg:btn-md">
+
+        <Link
+          to={"/login"}
+          className="btn btn-outline btn-warning btn-xs lg:btn-md"
+        >
           Profile
         </Link>
       </div>

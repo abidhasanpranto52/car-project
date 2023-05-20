@@ -1,6 +1,6 @@
 import GoogleSignIn from "../Shared/GoogleSignIn/GoogleSignIn";
-import img from "../../assets/logo/registration.png";
-import React, { useContext } from "react";
+import img1 from "../../assets/logo/registration.png";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 
@@ -30,7 +30,7 @@ const Registration = () => {
       <div className="hero animate__animated animate__zoomIn min-h-screen bg-base-200">
         <div className="hero-content flex-col lg:flex-row">
           <div className="text-center w-1/2 lg:text-left">
-            <img src={img} alt="" />
+            <img src={img1} alt="" />
             <h1 className="text-5xl font-bold">Signup now!</h1>
           </div>
           <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
@@ -100,7 +100,7 @@ const Registration = () => {
                 {/* </Link> */}
               </form>
               <p className="text-center mt-5">
-                Already have an Account Yet?{" "}
+                Already have an Account Yet?
                 <Link to={"/login"} className="text-red-500 font-bold">
                   Log In
                 </Link>
