@@ -51,18 +51,27 @@ const Navbar = () => {
             <li>
               <Link to={"/alltoys"}>All Toys</Link>
             </li>
-            <li>
-              <Link to={"/mytoys"}>My Toys</Link>
-            </li>
-            <li>
-              <Link to={"/addtoy"}>Add A Toy</Link>
-            </li>
+
             <li>
               <Link to={"/blog"}>Blog</Link>
             </li>
             <li>
               <Link to={"/contact"}>Contact</Link>
             </li>
+            {user?.email ? (
+              <>
+                <li>
+                  <Link to={"/mytoys"}>My Toys</Link>
+                </li>
+                <li>
+                  <Link to={"/addtoy"}>Add A Toy</Link>
+                </li>
+              </>
+            ) : (
+              <li>
+                <Link to={"/login"}>Log In</Link>
+              </li>
+            )}
           </ul>
         </div>
         <Link to={"/"} className="flex">
@@ -78,12 +87,18 @@ const Navbar = () => {
           <li>
             <Link to={"/alltoys"}>All Toys</Link>
           </li>
-          <li>
-            <Link to={"/mytoys"}>My Toys</Link>
-          </li>
-          <li>
-            <Link to={"/addtoy"}>Add A Toy</Link>
-          </li>
+          {user?.email ? (
+            <>
+              <li>
+                <Link to={"/mytoys"}>My Toys</Link>
+              </li>
+              <li>
+                <Link to={"/addtoy"}>Add A Toy</Link>
+              </li>
+            </>
+          ) : (
+            <></>
+          )}
           <li>
             <Link to={"/blog"}>Blog</Link>
           </li>
@@ -100,9 +115,9 @@ const Navbar = () => {
         {user?.email ? (
           <>
             <Link
-              to={"/bookings"}
+              to={"/mytoys"}
               className="btn flex items-center btn-outline tooltip tooltip-bottom border-none btn-warning"
-              data-tip="shop"
+              data-tip="My Toys"
             >
               <AiOutlineShopping className="lg:text-2xl " />
             </Link>
@@ -122,6 +137,7 @@ const Navbar = () => {
             <AiOutlineLogin className="lg:text-2xl" />
           </Link>
         )}
+          
       </div>
     </div>
   );

@@ -8,14 +8,13 @@ const AddToy = () => {
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
     console.log(data);
     // data.skills = selectedOption;
 
-    fetch("http://localhost:5000/postToy", {
+    fetch("https://toy-cars-server-seven.vercel.app/postToy", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),

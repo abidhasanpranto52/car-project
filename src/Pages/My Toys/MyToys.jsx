@@ -8,14 +8,16 @@ const MyToys = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
 
-  const url = `http://localhost:5000/mytoys/${user.email}`;
+  const url = `https://toy-cars-server-seven.vercel.app/mytoys/${user?.email}`;
   useEffect(() => {
-    fetch(url, {
-      method: "GET",
-      headers: {
-        "content-type": "application/json",
-      },
-    })
+    fetch(url, 
+    //     {
+    //   method: "GET",
+    //   headers: {
+    //     "content-type": "application/json",
+    //   },
+    // }
+    )
       .then((res) => res.json())
       .then((data) => setToys(data));
   }, [user]);
