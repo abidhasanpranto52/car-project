@@ -1,0 +1,9 @@
+.modal-image {
+    width: 50vh;
+    height: 50vh;
+    transition: transform 0.3s;
+  }
+  
+  .modal-image:hover {
+    transform: scale(1.2);
+  }

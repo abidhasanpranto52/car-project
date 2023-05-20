@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import AllTouysInfo from "./AllTouysInfo";
+import './Toys.css'
 
 const AllToys = () => {
   const { user } = useContext(AuthContext);
@@ -46,6 +47,7 @@ const AllToys = () => {
               <thead>
                 <tr>
                   <th>Seller</th>
+                  <th>Image</th>
                   <th>Toy Name</th>
                   <th>Sub-category</th>
                   <th>Price</th>
