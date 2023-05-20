@@ -1,9 +1,23 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import logo from "../../../assets/logo/logo.png";
-import { AiOutlineSearch } from "react-icons/ai";
+import {
+  AiOutlineSearch,
+  AiOutlineLogin,
+  AiOutlineLogout,
+  AiOutlineShopping,
+} from "react-icons/ai";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../Provider/AuthProvider";
 
 const Navbar = () => {
+  const { user, logOut } = useContext(AuthContext);
+
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {})
+      .catch((error) => console.log(error));
+  };
+
   return (
     <div
       style={{ "font-family": "'Rancho', cursive" }}
@@ -108,9 +122,6 @@ const Navbar = () => {
             <AiOutlineLogin className="lg:text-2xl" />
           </Link>
         )}
-        <Link to={""} className="btn btn-outline btn-warning btn-xs lg:btn-md">
-          Appoinment
-        </Link>
       </div>
     </div>
   );
