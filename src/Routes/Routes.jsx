@@ -10,6 +10,7 @@ import Blog from "../Pages/Blog/Blog";
 import ToyDetails from "../Pages/ToyDetails/ToyDetails";
 import PrivateRoute from "./PricvateRoute";
 import UpdateToy from "../Pages/UpdateToy/UpdateToy";
+import ErrorPage from "../Pages/Error/ErrorPage";
 
 const router = createBrowserRouter([
   {
