@@ -1,11 +1,11 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import MyToysInfo from "./MyToysInfo";
+<link rel="stylesheet" href="bower_components/aos/dist/aos.css" />
 
 const MyToys = () => {
   const { user } = useContext(AuthContext);
   const [toys, setToys] = useState([]);
-  const [searchText, setSearchText] = useState("");
 
   const url = `http://localhost:5000/mytoys/${user?.email}`;
   useEffect(() => {
@@ -14,27 +14,11 @@ const MyToys = () => {
       .then((data) => setToys(data));
   }, [user]);
 
-  const handleSearch = () => {
-    fetch(`http://localhost:5000/getJobsByText/${searchText}`)
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        setJobs(data);
-      });
-  };
 
   return (
-    <div>
-      <div>
+      <div data-aos="flip-down">
         <h1 className="text-center font-bold text-2xl">My toys</h1>
-        <div className="search-box p-2 text-center">
-          <input
-            onChange={(e) => setSearchText(e.target.value)}
-            type="text"
-            className="p-1"
-          />{" "}
-          <button onClick={handleSearch}>Search</button>
-        </div>
+        <div>
         <div>
           <div className="overflow-x-auto w-full">
             <table className="table w-full">

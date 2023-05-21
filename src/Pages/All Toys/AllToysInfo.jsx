@@ -4,9 +4,6 @@ import { Link } from "react-router-dom";
 const AllToysInfo = ({ toy }) => {
   const { _id, seller, name, price, category, postedBy, image, quantity } = toy;
 
-
-  
-
   return (
     <tr>
       <td>
@@ -30,14 +27,7 @@ const AllToysInfo = ({ toy }) => {
       <td className="text-red-600">{"$" + price}</td>
       <td className="text-center">{quantity}</td>
       <th>
-        <Link to={`/toydetails/${_id}`}>
-          <button
-            style={{ target: "_blank" }}
-            className="btn btn-sm  btn-outline"
-          >
-            Details
-          </button>
-        </Link>
+        <Link to={`/toydetails/${_id}`}>Details</Link>
       </th>
     </tr>
   );

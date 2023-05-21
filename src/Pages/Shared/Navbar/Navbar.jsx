@@ -19,10 +19,7 @@ const Navbar = () => {
   };
 
   return (
-    <div
-      style={{ "font-family": "'Rancho', cursive" }}
-      className="navbar font-bold bg-base-100"
-    >
+    <div className="navbar rounded font-bold bg-base-200">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -76,7 +73,7 @@ const Navbar = () => {
         </div>
         <Link to={"/"} className="flex">
           <img style={{ height: 60 }} src={logo} alt="" />
-          <span className="lg:leading-10">ToMmY Toys</span>
+          <span className="lg:leading-loose mt-3">ToMmY Toys</span>
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
@@ -108,7 +105,6 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end">
-
         {user?.email ? (
           <>
             <Link
@@ -134,7 +130,6 @@ const Navbar = () => {
             <AiOutlineLogin className="lg:text-2xl" />
           </Link>
         )}
-          
       </div>
     </div>
   );

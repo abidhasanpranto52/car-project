@@ -1,9 +1,13 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useContext } from "react";
 import AllToysInfo from "./AllToysInfo";
 import "./Toys.css";
+import { AuthContext } from "../Provider/AuthProvider";
+import { useNavigate } from "react-router-dom";
 
 const AllToys = () => {
+  const { user } = useContext(AuthContext);
   const [toys, setToys] = useState([]);
+  const navigate = useNavigate();
 
   const [asc, setAsc] = useState(true);
   const searchRef = useRef(null);
@@ -16,25 +20,25 @@ const AllToys = () => {
       }`
     )
       .then((res) => res.json())
-      .then((data) => setToys(data));
-  }, [asc, search]);
+      .then((data) => {
+        if (!data.error) {
+          setToys(data);
+        } else {
+          navigate("/");
+        }
+      });
+  }, [asc, search, navigate]);
 
   const handleSearch = () => {
     console.log(searchRef.current.value);
     setSearch(searchRef.current.value);
   };
 
-  // useEffect(() => {
-  //   fetch("https://toy-cars-server-seven.vercel.app/alltoys")
-  //     .then((res) => res.json())
-  //     .then((data) => setToys(data));
-  // }, []);
-
   return (
     <div>
       <div>
         <div className="text-center">
-          <h3 className="text-2xl font-bold text-orange-600">All Toys</h3>
+          <h2 className="text-4xl font-bold text-orange-600">All Toys</h2>
           <div className="form-control">
             <div className="input-group flex justify-between">
               <div className="flex items-center">
@@ -62,9 +66,12 @@ const AllToys = () => {
                 </button>
               </div>
               <div>
-              <button className="btn btn-primary" onClick={() => setAsc(!asc)}>
-                {asc ? "Price: High to Low" : "Price: Low to High"}
-              </button>
+                <button
+                  className="btn btn-primary"
+                  onClick={() => setAsc(!asc)}
+                >
+                  {asc ? "Price: High to Low" : "Price: Low to High"}
+                </button>
               </div>
             </div>
           </div>
@@ -77,7 +84,7 @@ const AllToys = () => {
                 <tr>
                   <th className="text-center">Image</th>
                   <th className="text-center">Seller</th>
-                  <th className="text-center">Toy Name</th>
+                  <th>Toy Name</th>
                   <th className="text-center">Sub-category</th>
                   <th className="text-center">Price</th>
                   <th className="text-center">Available Quantity</th>

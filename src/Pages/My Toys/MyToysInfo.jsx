@@ -1,10 +1,11 @@
 import React from "react";
+import 'animate.css';
 
 const MyToysInfo = ({ toy }) => {
   const { seller, name, price, category, postedBy, image, quantity } = toy;
 
   return (
-    <tr>
+    <tr className="animate__animated animate__slideInDown">
       <td>
         <div className="avatar">
           <div className="w-20 rounded-xl">

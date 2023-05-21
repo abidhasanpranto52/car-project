@@ -8,52 +8,57 @@ import MyToys from "../Pages/My Toys/MyToys";
 import AddToy from "../Pages/Add Toy/AddToy";
 import Blog from "../Pages/Blog/Blog";
 import ToyDetails from "../Pages/ToyDetails/ToyDetails";
-
+import PrivateRoute from "./PricvateRoute";
 
 const router = createBrowserRouter([
-    {
-      path: "/",
-      element: <Main/>,
-      children: [
-        {
-          path: '/',
-          element: <Home/>
-        },
-        {
-          path: '/alltoys',
-          element:<AllToys/>
-        },
-        {
-          path: '/mytoys',
-          element:<MyToys/>
-        },
-        {
-          path: '/addtoy',
-          element:<AddToy/>
-        },
-        {
-          path: '/blog',
-          element: <Blog/>
-        },
-        {
-          path: '/addtoy',
-          element:<AddToy/>
-        },
-        {
-          path: '/login',
-          element: <LogIn/>
-        },
-        {
-          path: '/registration',
-          element: <Registration/>
-        },
-        {
-            path:'/toydetails/:id',
-            element: <ToyDetails/>,
-            loader: ({params}) => fetch(`https://toy-cars-server-seven.vercel.app/alltoys/${params.id}`)
-        },
-      ]
-    },
-  ]);
+  {
+    path: "/",
+    element: <Main />,
+    children: [
+      {
+        path: "/",
+        element: <Home />,
+      },
+      {
+        path: "/alltoys",
+        element: <AllToys />,
+      },
+      {
+        path: "/mytoys",
+        element: (
+          <PrivateRoute>
+            <MyToys />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/addtoy",
+        element: (
+          <PrivateRoute>
+            <AddToy />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/blog",
+        element: <Blog />,
+      },
+      {
+        path: "/login",
+        element: <LogIn />,
+      },
+      {
+        path: "/registration",
+        element: <Registration />,
+      },
+      {
+        path: "/toydetails/:id",
+        element: <PrivateRoute><ToyDetails/></PrivateRoute>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/toydetails/${params.id}`),
+      },
+    ],
+  },
+]);
 
 export default router;

@@ -1,6 +1,8 @@
 import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../Provider/AuthProvider";
+import Swal from "sweetalert2";
+import 'animate.css';
 
 const AddToy = () => {
   const { user } = useContext(AuthContext);
@@ -14,26 +16,29 @@ const AddToy = () => {
     console.log(data);
     // data.skills = selectedOption;
 
-    fetch("https://toy-cars-server-seven.vercel.app/postToy", {
+    fetch("http://localhost:5000/postToy", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
     })
       .then((res) => res.json())
-      .then((result) => {
-        console.log(result);
+      .then((data) => {
+        console.log(data);
+        if (data.insertedId) {
+          Swal.fire({
+            title: "Thank You🥰!",
+            text: "Service Booked Successfully",
+            icon: "success",
+            confirmButtonText: "OK",
+          });
+        }
       });
     console.log(data);
   };
 
   return (
-    <div>
-      <h1
-        style={{ "font-family": "'Rancho', cursive" }}
-        className="my-5 text-center font-bold text-3xl "
-      >
-        Add A Toy
-      </h1>
+    <div className="animate__animated animate__zoomIn">
+      <h1 className="my-5 text-center font-bold text-3xl ">Add A Toy</h1>
       <div className="border-2 border-slate-600 rounded p-6">
         <form onSubmit={handleSubmit(onSubmit)}>
           {errors.exampleRequired && <span>This field is required</span>}
