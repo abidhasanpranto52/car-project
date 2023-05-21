@@ -127,7 +127,7 @@ const Navbar = () => {
             to={"/login"}
             className="btn btn-outline border-none btn-warning"
           >
-            <AiOutlineLogin className="lg:text-2xl" />
+            <AiOutlineLogin className="lg:text-2xl font-bold" />
           </Link>
         )}
       </div>

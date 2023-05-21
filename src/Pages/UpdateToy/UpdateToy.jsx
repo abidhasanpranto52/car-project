@@ -1,33 +1,35 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
+import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 import Swal from "sweetalert2";
-import 'animate.css';
 
-const AddToy = () => {
-  const { user } = useContext(AuthContext);
+const UpdateToy = () => {
+  const toy = useLoaderData();
+  const {user} =useContext(AuthContext);
+  const { _id, seller, name, price, category, postedBy, image, rating, quantity } = toy;
 
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
+
+
   const onSubmit = (data) => {
     console.log(data);
-    // data.skills = selectedOption;
-
-    fetch("http://localhost:5000/postToy", {
-      method: "POST",
+    fetch(`http://localhost:5000/updatetoy/${_id}`, {
+      method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
     })
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        if (data.insertedId) {
+        if (data.modifiedCount>0) {
           Swal.fire({
             title: "Thank You🥰!",
-            text: "Service Booked Successfully",
+            text: "Toys Updated Successfully",
             icon: "success",
             confirmButtonText: "OK",
           });
@@ -38,8 +40,7 @@ const AddToy = () => {
 
   return (
     <div className="animate__animated animate__zoomIn">
-      <h1 className="my-5 text-center font-bold text-3xl ">Add A Toy</h1>
-      <p className="my-5 text-center font-semibold text-gray-500 ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, suscipit?</p>
+      <h1 className="my-5 text-center font-bold text-3xl ">Update : {name} details</h1>
       <div className="border-2 border-slate-600 rounded p-6">
         <form onSubmit={handleSubmit(onSubmit)}>
           {errors.exampleRequired && <span>This field is required</span>}
@@ -48,25 +49,30 @@ const AddToy = () => {
               className="w-full text-input p-3 border-2 rounded border-indigo-600 "
               {...register("image")}
               placeholder="image Url"
+              defaultValue={image}
+              readOnly
             />
 
             <input
               className="text-input p-3 border-2 rounded border-indigo-600"
               {...register("name", { required: true })}
               placeholder="Toy Name"
-              defaultValue=""
+              defaultValue={name}
+              readOnly
             />
             <input
               className="text-input p-3 border-2 rounded border-indigo-600"
               {...register("seller", { required: true })}
               placeholder="Seller Name"
               type="text"
+              defaultValue={seller}
+              readOnly
             />
             <input
               className="text-input p-3 border-2 rounded border-indigo-600"
               value={user?.email}
               {...register("postedBy")}
-              // readOnly
+              readOnly
               placeholder="your email"
               type="email"
             />
@@ -75,6 +81,7 @@ const AddToy = () => {
             <select
               className="text-input w-full p-3 border-2 rounded border-indigo-600"
               {...register("category")}
+              readOnly
             >
               <option value="Sports">Sports Car</option>
               <option value="Truck">Truck</option>
@@ -91,13 +98,15 @@ const AddToy = () => {
               className="text-input p-3 border-2 rounded border-indigo-600"
               {...register("rating")}
               placeholder="Rating"
-              type="text"
+              type="number"
+              defaultValue={rating}
+              readOnly
             />
             <input
               className="text-input p-3 border-2 rounded border-indigo-600"
               {...register("quantity")}
               placeholder="Available Quantity"
-              type="text"
+              type="number"
             />
           </div>
 
@@ -109,7 +118,7 @@ const AddToy = () => {
             />
           </div>
           <div className="my-5">
-            <input className="btn btn-block bg-orange-700" value="Add Toy" type="submit" />
+            <input className="btn btn-block bg-red-600" value="Update" type="submit" />
           </div>
         </form>
       </div>
@@ -117,4 +126,4 @@ const AddToy = () => {
   );
 };
 
-export default AddToy;
+export default UpdateToy;

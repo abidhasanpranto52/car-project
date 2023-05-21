@@ -15,6 +15,8 @@ const MyToys = () => {
   }, [user]);
 
 
+  
+
   return (
       <div data-aos="flip-down">
         <h1 className="text-center font-bold text-2xl">My toys</h1>
@@ -25,13 +27,14 @@ const MyToys = () => {
               {/* head */}
               <thead>
                 <tr>
-                  <th className="text-center">Image</th>
-                  <th className="text-center">Seller</th>
-                  <th className="text-center">Toy Name</th>
-                  <th className="text-center">Sub-category</th>
+                  <th>Image</th>
+                  <th>Seller</th>
+                  <th>Toy Name</th>
+                  <th>Sub-category</th>
                   <th className="text-center">Price</th>
                   <th className="text-center">Available Quantity</th>
                   <th></th>
+                  <th>Staus</th>
                 </tr>
               </thead>
               <tbody>
