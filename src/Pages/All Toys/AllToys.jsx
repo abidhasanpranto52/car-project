@@ -15,7 +15,7 @@ const AllToys = () => {
 
   useEffect(() => {
     fetch(
-      `http://localhost:5000/alltoys?search=${search}&sort=${
+      `https://toy-cars-server-seven.vercel.app/alltoys?search=${search}&sort=${
         asc ? "asc" : "desc"
       }`
     )
