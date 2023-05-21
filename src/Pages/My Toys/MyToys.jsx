@@ -5,42 +5,36 @@ import MyToysInfo from "./MyToysInfo";
 const MyToys = () => {
   const { user } = useContext(AuthContext);
   const [toys, setToys] = useState([]);
-  const [searchTerm, setSearchTerm] = useState("");
-  const [searchResults, setSearchResults] = useState([]);
+  const [searchText, setSearchText] = useState("");
 
-  const url = `https://toy-cars-server-seven.vercel.app/mytoys/${user?.email}`;
+  const url = `http://localhost:5000/mytoys/${user?.email}`;
   useEffect(() => {
-    fetch(url, 
-    //     {
-    //   method: "GET",
-    //   headers: {
-    //     "content-type": "application/json",
-    //   },
-    // }
-    )
+    fetch(url)
       .then((res) => res.json())
       .then((data) => setToys(data));
   }, [user]);
 
-  useEffect(() => {
-    // Filter toys based on search term
-    const results = toys.filter((toy) =>
-      toy.name.toLowerCase().includes(searchTerm.toLowerCase())
-    );
-    setSearchResults(results);
-  }, [searchTerm, toys]);
+  const handleSearch = () => {
+    fetch(`http://localhost:5000/getJobsByText/${searchText}`)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setJobs(data);
+      });
+  };
 
   return (
     <div>
       <div>
         <h1 className="text-center font-bold text-2xl">My toys</h1>
-        <input
-          type="text"
-          placeholder="Search by toy name..."
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-          className="w-2/3 my-3 mx-auto border-2 rounded text-center"
-        />
+        <div className="search-box p-2 text-center">
+          <input
+            onChange={(e) => setSearchText(e.target.value)}
+            type="text"
+            className="p-1"
+          />{" "}
+          <button onClick={handleSearch}>Search</button>
+        </div>
         <div>
           <div className="overflow-x-auto w-full">
             <table className="table w-full">

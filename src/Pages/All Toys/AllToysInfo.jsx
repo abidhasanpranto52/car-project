@@ -1,17 +1,11 @@
-import React, { } from "react";
+import React from "react";
 
+import { Link } from "react-router-dom";
 const AllToysInfo = ({ toy }) => {
-  const {
-    _id,
-    seller,
-    name,
-    price,
-    category,
-    postedBy,
-    rating,
-    image,
-    quantity,
-  } = toy;
+  const { _id, seller, name, price, category, postedBy, image, quantity } = toy;
+
+
+  
 
   return (
     <tr>
@@ -36,7 +30,14 @@ const AllToysInfo = ({ toy }) => {
       <td className="text-red-600">{"$" + price}</td>
       <td className="text-center">{quantity}</td>
       <th>
-        <button className="btn btn-outline btn-xs">details</button>
+        <Link to={`/toydetails/${_id}`}>
+          <button
+            style={{ target: "_blank" }}
+            className="btn btn-sm  btn-outline"
+          >
+            Details
+          </button>
+        </Link>
       </th>
     </tr>
   );

@@ -1,17 +1,7 @@
 import React from "react";
 
 const MyToysInfo = ({ toy }) => {
-  const {
-    _id,
-    seller,
-    name,
-    price,
-    category,
-    postedBy,
-    rating,
-    image,
-    quantity,
-  } = toy;
+  const { seller, name, price, category, postedBy, image, quantity } = toy;
 
   return (
     <tr>

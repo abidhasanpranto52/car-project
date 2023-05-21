@@ -108,9 +108,6 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end">
-        <Link to={""} className="btn btn-outline border-none btn-warning">
-          <AiOutlineSearch className="lg:text-2xl" />
-        </Link>
 
         {user?.email ? (
           <>
