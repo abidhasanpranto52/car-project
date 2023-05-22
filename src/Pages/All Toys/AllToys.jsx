@@ -35,7 +35,7 @@ const AllToys = () => {
 
   return (
     
-      <div className="animate__animated animate__lightSpeedInLeft">
+      <div>
         <div className="text-center">
           <h2 className="text-4xl font-bold text-orange-600">All Toys</h2>
           <div className="form-control">

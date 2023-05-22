@@ -18,11 +18,7 @@ const About = () => {
           Tommy Toys is a beloved brand that has captured the hearts of children
           and parents alike. With a commitment to quality, innovation, and
           playfulness, Tommy Toys offers a wide range of captivating and
-          engaging playthings. From imaginative playsets to educational puzzles
-          and games, each Tommy Toy is meticulously crafted to inspire
-          curiosity, spark creativity, and ignite a sense of wonder in young
-          minds. . Let your child's imagination soar with Tommy
-          Toys, where every moment is an adventure waiting to unfold.!
+          engaging playthings. Toys are one of the most beloved and cherished products for children. They provide endless hours of entertainment, encourage imagination, and promote cognitive and physical development!
         </p>
         <a href='/' className="btn my-2 btn-outline btn-warning">
           read more
