@@ -16,7 +16,7 @@ const AddToy = () => {
     console.log(data);
     // data.skills = selectedOption;
 
-    fetch("http://localhost:5000/postToy", {
+    fetch("https://toy-cars-server-seven.vercel.app/postToy", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
@@ -61,6 +61,7 @@ const AddToy = () => {
               {...register("seller", { required: true })}
               placeholder="Seller Name"
               type="text"
+              defaultValue={user?.displayName}
             />
             <input
               className="text-input p-3 border-2 rounded border-indigo-600"

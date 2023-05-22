@@ -16,7 +16,7 @@ const AllToys = () => {
 
   useEffect(() => {
     fetch(
-      "http://localhost:5000/alltoys"
+      "https://toy-cars-server-seven.vercel.app/alltoys"
     )
       .then((res) => res.json())
       .then((data) => {

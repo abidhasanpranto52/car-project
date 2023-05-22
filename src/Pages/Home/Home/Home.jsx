@@ -11,6 +11,7 @@ const Home = () => {
             <About/>
             <Service/>
             <ImgGallery/>
+            
         </div>
     );
 };

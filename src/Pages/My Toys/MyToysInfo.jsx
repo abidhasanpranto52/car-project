@@ -8,7 +8,7 @@ const MyToysInfo = ({ toy }) => {
 
   const handleToyUpdate = (data) => {
     console.log(data);
-    fetch(`http://localhost:5000/updatetoy/${data._id}`, {
+    fetch(`https://toy-cars-server-seven.vercel.app/updatetoy/${data._id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),

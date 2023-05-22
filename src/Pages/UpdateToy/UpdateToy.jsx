@@ -18,7 +18,7 @@ const UpdateToy = () => {
 
   const onSubmit = (data) => {
     console.log(data);
-    fetch(`http://localhost:5000/updatetoy/${_id}`, {
+    fetch(`https://toy-cars-server-seven.vercel.app/updatetoy/${_id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
@@ -65,7 +65,7 @@ const UpdateToy = () => {
               {...register("seller", { required: true })}
               placeholder="Seller Name"
               type="text"
-              defaultValue={seller}
+              defaultValue={user?.displayName}
               readOnly
             />
             <input
