@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState, useContext } from "react";
 import AllToysInfo from "./AllToysInfo";
 import "./Toys.css";
+import "animate.css";
 import { AuthContext } from "../Provider/AuthProvider";
 import { useNavigate } from "react-router-dom";
 
@@ -15,9 +16,7 @@ const AllToys = () => {
 
   useEffect(() => {
     fetch(
-      `https://toy-cars-server-seven.vercel.app/alltoys?search=${search}&sort=${
-        asc ? "asc" : "desc"
-      }`
+      "http://localhost:5000/alltoys"
     )
       .then((res) => res.json())
       .then((data) => {
@@ -27,7 +26,7 @@ const AllToys = () => {
           navigate("/");
         }
       });
-  }, [asc, search, navigate]);
+  }, []);
 
   const handleSearch = () => {
     console.log(searchRef.current.value);
@@ -35,8 +34,8 @@ const AllToys = () => {
   };
 
   return (
-    <div>
-      <div>
+    
+      <div className="animate__animated animate__lightSpeedInLeft">
         <div className="text-center">
           <h2 className="text-4xl font-bold text-orange-600">All Toys</h2>
           <div className="form-control">
@@ -100,7 +99,7 @@ const AllToys = () => {
           </div>
         </div>
       </div>
-    </div>
+    
   );
 };
 

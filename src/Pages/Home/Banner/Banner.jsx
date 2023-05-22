@@ -8,7 +8,7 @@ import img4 from "../../../assets/Banner/img4.jpg";
 const Banner = () => {
   return (
     <div>
-      <div className="carousel w-full  lg:h-[800px]">
+      <div className="carousel w-full  lg:h-[800px] animate__animated animate__zoomIn text-center">
         <div id="slide1" className="carousel-item relative w-full">
           <img src={img1} className="w-full rounded-xl" />
           <div className="absolute rounded-xl flex items-center h-full left-0 top-0 bg-gradient-to-r from-[#0f0f0f] to-[rgba(21, 21, 21, 0)]">
@@ -39,7 +39,7 @@ const Banner = () => {
         <div id="slide2" className="carousel-item relative w-full">
           <img src={img2} className="w-full rounded-xl" />
           <div className="absolute rounded-xl flex items-center h-full left-0 top-0 bg-gradient-to-r from-[#0f0f0f] to-[rgba(21, 21, 21, 0)]">
-            <div className="text-white space-y-7 pl-12 w-1/2">
+            <div className="text-white space-y-7 pl-12 w-1/2 ">
               <h2 className="md:text-6xl font-bold">
                 Explore Endless Possibilities with Our Versatile Toy Cars!
               </h2>
@@ -67,7 +67,7 @@ const Banner = () => {
         <div id="slide3" className="carousel-item relative w-full">
           <img src={img3} className="w-full rounded-xl" />
           <div className="absolute rounded-xl flex items-center h-full left-0 top-0 bg-gradient-to-r from-[#0f0f0f] to-[rgba(21, 21, 21, 0)]">
-            <div className="text-white space-y-7 pl-12 w-1/2">
+            <div className="text-white space-y-7 pl-12 w-1/2 ">
               <h2 className="md:text-6xl font-bold">
                 Discover the Perfect Toy Car for Every Child
               </h2>
@@ -94,7 +94,7 @@ const Banner = () => {
         <div id="slide4" className="carousel-item relative w-full">
           <img src={img4} className="w-full rounded-xl" />
           <div className="absolute rounded-xl flex items-center h-full left-0 top-0 bg-gradient-to-r from-[#0f0f0f] to-[rgba(21, 21, 21, 0)]">
-            <div className="text-white space-y-7 pl-12 w-1/2">
+            <div className="text-white space-y-7 pl-12 w-1/2 ">
               <h2 className="md:text-6xl font-bold">
                 Explore Endless Possibilities with Our Versatile Toy Cars!
               </h2>

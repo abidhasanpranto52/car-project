@@ -7,7 +7,7 @@ const MyToys = () => {
   const { user } = useContext(AuthContext);
   const [toys, setToys] = useState([]);
 
-  const url = `https://toy-cars-server-seven.vercel.app/mytoys/${user?.email}`;
+  const url = `http://localhost:5000/mytoys/${user?.email}`;
   useEffect(() => {
     fetch(url)
       .then((res) => res.json())

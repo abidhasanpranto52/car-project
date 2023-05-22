@@ -3,15 +3,16 @@ import car from "../../../assets/Cars/sports car 2.jpg";
 import about1 from "../../../assets/About/about-icon-1.png";
 import about2 from "../../../assets/About/about-icon-2.png";
 import about3 from "../../../assets/About/about-icon-3.png";
+import "animate.css";
 
 const About = () => {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 place-item-center p-6">
-      <div>
+    <div className="grid grid-cols-1 md:grid-cols-2 place-item-center p-6 ">
+      <div className="animate__animated animate__zoomInLeft">
         <img src={car} className="rounded mt-4" alt="" />
       </div>
 
-      <div className="content p-5 mx-aut">
+      <div className="content p-5 mx-aut animate__animated animate__zoomInRight">
         <h1 className="text-3xl font-bold">Welcome to Our ToMmY Toys</h1>
         <p className="my-2">
           Tommy Toys is a beloved brand that has captured the hearts of children

@@ -1,8 +1,9 @@
 import React from "react";
+import "animate.css";
 
 const Blog = () => {
   return (
-    <div className="p-7">
+    <div className="p-7 animate__animated  animate__zoomIn">
       <div>
         <p className="font-semibold text-2xl text-red-700">
           1.What is an access token and refresh token? How do they work and

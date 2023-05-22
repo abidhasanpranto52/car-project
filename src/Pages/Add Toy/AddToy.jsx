@@ -16,7 +16,7 @@ const AddToy = () => {
     console.log(data);
     // data.skills = selectedOption;
 
-    fetch("https://toy-cars-server-seven.vercel.app/postToy", {
+    fetch("http://localhost:5000/postToy", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
