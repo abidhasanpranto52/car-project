@@ -10,24 +10,25 @@ const GalleryInfo = ({ toys }) => {
     !user && toast("You have to log in first to view details!");
 
   return (
-    <div>
-      <div className="lg:px-8 px-2 rounded-md lg:gap-8 bg-[radial-gradient(ellipse_at_right,_var(--tw-gradient-stops))] from-violet-400 to-fuchsia-400 py-8 mb-2 lg:mb-0">
+    <div data-aos="zoom-in">
+      <div className="lg:px-3 rounded-md lg:gap-8 border-2 border-gray-300 py-4 mb-2 lg:mb-0">
         <div>
           <img
-            className="w-[25rem] h-[15rem] mb-4 border-8 border-sky-500"
+            className="w-[25rem] h-[15rem] border mb-4 rounded"
             src={image}
-            alt=""
+            alt={name}
           />
         </div>
         <div>
-          <h2 className="font-bold text-sky-300">Toy Name: {name}</h2>
-          <h4 className="font-bold text-sky-300">Price: {price}</h4>
-          <h4 className="font-bold text-sky-300">Rating: {rating}</h4>
+          <h2 className="font-bold text-2xl ">Toy Name : <span className="text-green-600">{name}</span></h2>
+          <h4 className="font-semibold ">Price: <span className="text-orange-600">{price}</span></h4>
+          <h4 className="text-gray-500 font-semibold">Rating: {rating}</h4>
         </div>
-        <Link to={`/toy/${_id}`}>
+        <hr />
+        <Link to={`/toydetails/${_id}`}>
           <button
             onClick={notify}
-            className="bg-indigo-700 mt-4 px-4 py-2 rounded-md text-white"
+            className="btn btn-error mt-4 px-4 py-2 rounded-md text-white"
           >
             View Details
           </button>

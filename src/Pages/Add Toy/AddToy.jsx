@@ -46,7 +46,7 @@ const AddToy = () => {
           <div className="grid grid-cols-1 md:grid-cols-4 place-items-center gap-3 my-5 text-center">
             <input
               className="w-full text-input p-3 border-2 rounded border-indigo-600 "
-              {...register("image")}
+              {...register("image", { required: true })}
               placeholder="image Url"
             />
 
@@ -67,7 +67,7 @@ const AddToy = () => {
               className="text-input p-3 border-2 rounded border-indigo-600"
               value={user?.email}
               {...register("postedBy")}
-              // readOnly
+              readOnly
               placeholder="your email"
               type="email"
             />
@@ -75,7 +75,7 @@ const AddToy = () => {
           <div className="grid grid-cols-1 md:grid-cols-4 place-items-center gap-3 my-5 text-center">
             <select
               className="text-input w-full p-3 border-2 rounded border-indigo-600"
-              {...register("category")}
+              {...register("category", { required: true })}
             >
               <option value="Sports">Sports Car</option>
               <option value="Truck">Truck</option>
@@ -90,13 +90,13 @@ const AddToy = () => {
             />
             <input
               className="text-input p-3 border-2 rounded border-indigo-600"
-              {...register("rating")}
+              {...register("rating", { required: true })}
               placeholder="Rating"
               type="text"
             />
             <input
               className="text-input p-3 border-2 rounded border-indigo-600"
-              {...register("quantity")}
+              {...register("quantity", { required: true })}
               placeholder="Available Quantity"
               type="text"
             />
@@ -105,7 +105,7 @@ const AddToy = () => {
           <div className="my-5">
             <input
               className="text-input w-full textarea border-2 rounded border-indigo-600"
-              {...register("description")}
+              {...register("description", { required: true })}
               placeholder="Details Description"
             />
           </div>

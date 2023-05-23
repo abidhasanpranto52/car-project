@@ -1,16 +1,13 @@
 import "./Service.css";
 import {
   BsFillClockFill,
-  BsFillTelephonePlusFill,
   BsUnity,
 } from "react-icons/bs";
-import "animate.css";
-
 import { AiOutlineHourglass, AiOutlineNumber } from "react-icons/ai";
 
 const Service = () => {
   return (
-    <div className="animate__animated  animate__zoomIn">
+    <div >
       <div className="service-container rounded-md  bg-[#f3e4e470] p-10 text-center">
         <h1>The Most Comprehensive Care in the Tommy Toys</h1>
         <p className=" text-slate-500">
@@ -19,7 +16,7 @@ const Service = () => {
         </p>
         <div className="service">
           <div className="grid grid-cols-1 lg:grid-cols-2 text-center ">
-            <div className=" text-white text-center bg-slate-900  service-box p-5 rounded-lg">
+            <div data-aos="fade-right" className=" text-white text-center bg-slate-900  service-box p-5 rounded-lg">
               <h5 className="text-center">
                 <BsUnity className="mx-auto" />
               </h5>
@@ -33,7 +30,7 @@ const Service = () => {
                 </a>
               </div>
             </div>
-            <div className=" text-white text-center bg-slate-600  service-box p-5 rounded-lg">
+            <div data-aos="fade-left" className=" text-white text-center bg-slate-600  service-box p-5 rounded-lg">
               <h5 className="text-center">
                 <AiOutlineHourglass className="mx-auto" />
               </h5>
@@ -47,7 +44,7 @@ const Service = () => {
                 </a>
               </div>
             </div>
-            <div className=" text-white text-center bg-slate-600  service-box p-5 rounded-lg">
+            <div data-aos="fade-left" className=" text-white text-center bg-slate-600  service-box p-5 rounded-lg">
               <h5 className="text-center">
                 <BsFillClockFill className="mx-auto" />
               </h5>
@@ -61,7 +58,7 @@ const Service = () => {
                 </a>
               </div>
             </div>
-            <div className=" text-white text-center bg-slate-900  service-box p-5 rounded-lg">
+            <div data-aos="fade-right" className=" text-white text-center bg-slate-900  service-box p-5 rounded-lg">
               <h5 className="text-center">
                 <AiOutlineNumber className="mx-auto" />
               </h5>

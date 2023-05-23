@@ -1,15 +1,14 @@
 import React from "react";
-import "animate.css";
 import { Link } from "react-router-dom";
 const AllToysInfo = ({ toy }) => {
   const { _id, seller, name, price, category, postedBy, image, quantity } = toy;
 
   return (
-    <tr className="animate__animated animate__backInRight">
+    <tr data-aos="zoom-in">
       <td>
         <div className="avatar">
           <div className="w-20 rounded-xl">
-            <img src={image} alt="Image" />
+            <img data-aos="zoom-in" src={image} alt="Image" />
           </div>
         </div>
       </td>
@@ -23,8 +22,8 @@ const AllToysInfo = ({ toy }) => {
       </td>
 
       <td className="font-bold">{name}</td>
-      <td>{category}</td>
-      <td className="text-red-600">{"$" + price}</td>
+      <td className="text-center">{category}</td>
+      <td className="font-semibold text-center text-red-600">{"$" + price}</td>
       <td className="text-center">{quantity}</td>
       <th>
         <Link to={`/toydetails/${_id}`}>Details</Link>

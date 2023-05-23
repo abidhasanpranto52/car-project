@@ -1,17 +1,11 @@
 import React, { useContext, useState } from "react";
 import logo from "../../../assets/logo/logo.png";
-import {
-  AiOutlineSearch,
-  AiOutlineLogin,
-  AiOutlineLogout,
-  AiOutlineShopping,
-} from "react-icons/ai";
+import { AiOutlineLogin, AiOutlineLogout } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
-  console.log(user);
 
   const handleLogOut = () => {
     logOut()
@@ -53,9 +47,7 @@ const Navbar = () => {
             <li>
               <Link to={"/blog"}>Blog</Link>
             </li>
-            <li>
-              <Link to={"/contact"}>Contact</Link>
-            </li>
+
             {user?.email ? (
               <>
                 <li>
@@ -74,7 +66,9 @@ const Navbar = () => {
         </div>
         <Link to={"/"} className="flex">
           <img style={{ height: 60 }} src={logo} alt="" />
-          <span className="lg:leading-loose mt-3">ToMmY Toys</span>
+          <span className="lg:leading-loose  text-red-700  md:text-3xl">
+            ToMmY Toys
+          </span>
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
@@ -100,20 +94,20 @@ const Navbar = () => {
           <li>
             <Link to={"/blog"}>Blog</Link>
           </li>
-          <li>
-            <Link to={"/contact"}>Contact</Link>
-          </li>
         </ul>
       </div>
       <div className="navbar-end">
         {user?.email ? (
           <>
-            { user? 
+            {user ? (
               <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-              <div className="w-10 rounded-full">
-                <img src={user?.photoURL} />
-              </div>
-            </label>: ""}
+                <div className="w-10 rounded-full">
+                  <img src={user?.photoURL} />
+                </div>
+              </label>
+            ) : (
+              ""
+            )}
             <Link
               onClick={handleLogOut}
               to={""}

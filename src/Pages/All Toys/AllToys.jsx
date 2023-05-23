@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState, useContext } from "react";
 import AllToysInfo from "./AllToysInfo";
 import "./Toys.css";
-import "animate.css";
+import { AiFillInfoCircle } from "react-icons/ai";
 import { AuthContext } from "../Provider/AuthProvider";
 import { useNavigate } from "react-router-dom";
 
@@ -35,9 +35,9 @@ const AllToys = () => {
 
   return (
     
-      <div>
+      <div data-aos="zoom-in">
         <div className="text-center">
-          <h2 className="text-4xl font-bold text-orange-600">All Toys</h2>
+          <h2 className="text-4xl font-bold mt-4 text-orange-600">All Toys : {toys.length}</h2>
           <div className="form-control">
             <div className="input-group flex justify-between">
               <div className="flex items-center">
@@ -81,13 +81,13 @@ const AllToys = () => {
               {/* head */}
               <thead>
                 <tr>
-                  <th className="text-center">Image</th>
-                  <th className="text-center">Seller</th>
+                  <th>Image</th>
+                  <th>Seller</th>
                   <th>Toy Name</th>
                   <th className="text-center">Sub-category</th>
                   <th className="text-center">Price</th>
                   <th className="text-center">Available Quantity</th>
-                  <th></th>
+                  <th  className="text-center text-2xl font-bold"><AiFillInfoCircle/> </th>
                 </tr>
               </thead>
               <tbody>

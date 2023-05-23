@@ -3,11 +3,10 @@ import "animate.css";
 import { AiFillEdit, AiFillDelete } from "react-icons/ai";
 import { Link } from "react-router-dom";
 
-const MyToysInfo = ({ toy }) => {
+const MyToysInfo = ({ toy, handleDelete }) => {
   const { _id, seller, name, price, category, postedBy, image, quantity } = toy;
 
   const handleToyUpdate = (data) => {
-    console.log(data);
     fetch(`https://toy-cars-server-seven.vercel.app/updatetoy/${data._id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
@@ -23,7 +22,7 @@ const MyToysInfo = ({ toy }) => {
   };
 
   return (
-    <tr className="animate__animated animate__slideInDown">
+    <tr data-aos="fade-up">
       <td>
         <div className="avatar">
           <div className="w-20 rounded-xl">
@@ -54,7 +53,7 @@ const MyToysInfo = ({ toy }) => {
               <AiFillEdit className="border-2 border-black text-2xl rounded"></AiFillEdit>
             </button>
           </Link>
-          <button className="btn-xs">
+          <button onClick={() => handleDelete(_id)} className="btn-xs">
             <AiFillDelete className="border-2 border-black text-2xl rounded"></AiFillDelete>
           </button>
         </div>

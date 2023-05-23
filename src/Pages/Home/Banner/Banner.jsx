@@ -7,8 +7,8 @@ import img4 from "../../../assets/Banner/img4.jpg";
 
 const Banner = () => {
   return (
-    <div>
-      <div className="carousel w-full  lg:h-[800px] animate__animated animate__zoomIn text-center">
+    <div data-aos="zoom-in">
+      <div className="carousel w-full  lg:h-[800px]">
         <div id="slide1" className="carousel-item relative w-full">
           <img src={img1} className="w-full rounded-xl" />
           <div className="absolute rounded-xl flex items-center h-full left-0 top-0 bg-gradient-to-r from-[#0f0f0f] to-[rgba(21, 21, 21, 0)]">
