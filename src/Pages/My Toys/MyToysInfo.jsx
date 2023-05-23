@@ -7,7 +7,7 @@ const MyToysInfo = ({ toy, handleDelete }) => {
   const { _id, seller, name, price, category, postedBy, image, quantity } = toy;
 
   const handleToyUpdate = (data) => {
-    fetch(`https://toy-cars-server-seven.vercel.app/updatetoy/${data._id}`, {
+    fetch(`https://toy-cars-server-abidhasanpranto52.vercel.app/updatetoy/${data._id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),

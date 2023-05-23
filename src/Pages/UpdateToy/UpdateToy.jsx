@@ -9,14 +9,8 @@ const UpdateToy = () => {
   const { user } = useContext(AuthContext);
   const {
     _id,
-    seller,
     name,
-    price,
-    category,
-    postedBy,
     image,
-    rating,
-    quantity,
   } = toy;
 
   const {
@@ -27,7 +21,7 @@ const UpdateToy = () => {
 
   const onSubmit = (data) => {
     console.log(data);
-    fetch(`https://toy-cars-server-seven.vercel.app/updatetoy/${_id}`, {
+    fetch(`https://toy-cars-server-abidhasanpranto52.vercel.app/updatetoy/${_id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),

@@ -6,7 +6,7 @@ const ImgGallery = () => {
   const [activeTab, setActiveTab] = useState("Sports");
 
   useEffect(() => {
-    fetch("https://toy-cars-server-seven.vercel.app/alltoys")
+    fetch("https://toy-cars-server-abidhasanpranto52.vercel.app/alltoys")
       .then((res) => res.json())
       .then((data) => {
         setToyCategory(data);
